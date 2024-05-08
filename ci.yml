@@ -1,0 +1,20 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name as needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use latest Ubuntu environment
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Action to checkout the repository
+    
+    - name: Build
+      run: |
+        # Add build commands here, e.g., compiling or running tests
+        echo "Building Hello World project..."
+        # Example: if it's a Python project
+        python -c "print('Hello, World!')"
