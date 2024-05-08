@@ -1,20 +1,23 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
-      - main  # Adjust branch name as needed
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use latest Ubuntu environment
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # Action to checkout the repository
+      uses: actions/checkout@v2
     
     - name: Build
       run: |
-        # Add build commands here, e.g., compiling or running tests
-        echo "Building Hello World project..."
-        # Example: if it's a Python project
-        python -c "print('Hello, World!')"
+        # Build commands
+        
+    # Add deployment steps
+    - name: Deploy to Production
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        # Deployment commands
